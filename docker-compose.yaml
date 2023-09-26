@@ -10,6 +10,11 @@
 # See docker-compose-core.yml for a lightweight configuration that does not include Optimize, Identity, and Keycloak.
 
 services:
+  rest:
+    build: ./rest-service
+    container_name: rest
+    ports:
+      - "8080:8080"
 
   zeebe: # https://docs.camunda.io/docs/self-managed/platform-deployment/docker/#zeebe
     image: camunda/zeebe:${CAMUNDA_PLATFORM_VERSION}
