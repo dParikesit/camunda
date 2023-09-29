@@ -1,0 +1,173 @@
+{
+  "components": [
+    {
+      "text": "# Pilih Tiket",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1n7bifp",
+        "columns": null
+      },
+      "id": "Field_0q4ex90"
+    },
+    {
+      "values": [
+        {
+          "label": "yes",
+          "value": "yes"
+        },
+        {
+          "label": "no",
+          "value": "no"
+        }
+      ],
+      "label": "Buy ticket?",
+      "type": "radio",
+      "layout": {
+        "row": "Row_0st0gvy",
+        "columns": null
+      },
+      "id": "Field_056taas",
+      "key": "isBuying",
+      "defaultValue": "no"
+    },
+    {
+      "values": [
+        {
+          "label": "Kereta",
+          "value": "Kereta"
+        }
+      ],
+      "label": "Pilih Moda Transportasi",
+      "type": "select",
+      "layout": {
+        "row": "Row_1i8xtgq",
+        "columns": null
+      },
+      "id": "Field_1jvlbze",
+      "key": "field_modaTransportasi",
+      "defaultValue": "Kereta",
+      "searchable": true,
+      "validate": {
+        "required": true
+      },
+      "conditional": {
+        "hide": "=isBuying=\"no\""
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Semarang Poncol",
+          "value": "Semarang Poncol"
+        },
+        {
+          "label": "Semarang Tawang",
+          "value": "Semarang Tawang"
+        }
+      ],
+      "label": "Asal",
+      "type": "select",
+      "layout": {
+        "row": "Row_0hhrrcz",
+        "columns": null
+      },
+      "id": "Field_1dahl82",
+      "key": "val_origin",
+      "defaultValue": "Semarang Tawang",
+      "validate": {
+        "required": true
+      },
+      "conditional": {
+        "hide": "=isBuying=\"no\""
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Cimahi",
+          "value": "Cimahi"
+        },
+        {
+          "label": "Gambir",
+          "value": "Gambir"
+        },
+        {
+          "label": "Pasar Senen",
+          "value": "Pasar Senen"
+        },
+        {
+          "label": "Bandung",
+          "value": "Bandung"
+        }
+      ],
+      "label": "Destinasi",
+      "type": "select",
+      "layout": {
+        "row": "Row_0hhrrcz",
+        "columns": null
+      },
+      "id": "Field_100uo2b",
+      "key": "val_destination",
+      "defaultValue": "Bandung",
+      "validate": {
+        "required": true
+      },
+      "conditional": {
+        "hide": "=isBuying=\"no\""
+      }
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Tanggal",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_1xmtqky",
+        "columns": null
+      },
+      "id": "Field_052160b",
+      "key": "field_tanggal",
+      "conditional": {
+        "hide": "=isBuying=\"no\""
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Harina",
+          "value": "275000"
+        },
+        {
+          "label": "Ciremai",
+          "value": "210000"
+        }
+      ],
+      "label": "Pilih Tiket",
+      "type": "select",
+      "layout": {
+        "row": "Row_17mqwdu",
+        "columns": null
+      },
+      "id": "Field_13erw4x",
+      "key": "val_train",
+      "defaultValue": "275000",
+      "validate": {
+        "required": true
+      },
+      "properties": {},
+      "conditional": {
+        "hide": "=isBuying=\"no\""
+      }
+    }
+  ],
+  "type": "default",
+  "id": "Form_0qixu7w",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}

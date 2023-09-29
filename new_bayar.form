@@ -1,0 +1,34 @@
+{
+  "components": [
+    {
+      "text": "# Lakukan Pembayaran",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1fy3ekx",
+        "columns": null
+      },
+      "id": "Field_1fcs8ip"
+    },
+    {
+      "action": "submit",
+      "label": "Konfirmasi Pembayaran",
+      "type": "button",
+      "layout": {
+        "row": "Row_165in01",
+        "columns": null
+      },
+      "id": "Field_198nuxc",
+      "key": "field_0pspx0s"
+    }
+  ],
+  "type": "default",
+  "id": "Form_1x9ny7v",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}

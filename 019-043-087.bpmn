@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0znqx2r" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.15.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="164fe726-21e7-4a97-a571-7db8f69660d9">
+  <bpmn:collaboration id="Collaboration_0zg0as5">
+    <bpmn:participant id="Participant_181r3vm" name="Ticket App" processRef="Process_0gy162y" />
+  </bpmn:collaboration>
+  <bpmn:message id="Message_2sgd206" name="Message_showticket">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="=123" />
+    </bpmn:extensionElements>
+  </bpmn:message>
+  <bpmn:message id="Message_09847uk" name="Message_09847uk" />
+  <bpmn:process id="Process_0gy162y" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:userTaskForm id="userTaskForm_148bbrs">{
+  "components": [
+    {
+      "text": "# Pilih Jenis Transportasi",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1d6bnzs",
+        "columns": null
+      },
+      "id": "Field_18ib1so"
+    },
+    {
+      "values": [
+        {
+          "label": "Kereta",
+          "value": "Kereta"
+        }
+      ],
+      "label": "Pilih Jenis Transportasi",
+      "type": "select",
+      "layout": {
+        "row": "Row_1yuy08l",
+        "columns": null
+      },
+      "id": "Field_129m0az",
+      "key": "field_1b1ol72"
+    }
+  ],
+  "type": "default",
+  "id": "Form_1oleg77",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.1"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_0l6ep4q">{
+  "components": [
+    {
+      "text": "Pilih Tujuan",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1fy3ekx",
+        "columns": null
+      },
+      "id": "Field_1fcs8ip"
+    },
+    {
+      "values": [
+        {
+          "label": "Semarang Tawang",
+          "value": "Semarang Tawang"
+        },
+        {
+          "label": "Semarang Poncol",
+          "value": "Semarang Poncol"
+        }
+      ],
+      "label": "Asal",
+      "type": "select",
+      "layout": {
+        "row": "Row_1f2rp9q",
+        "columns": null
+      },
+      "id": "Field_0c2znv7",
+      "key": "origin",
+      "validate": {
+        "required": true
+      },
+      "defaultValue": "Semarang Tawang"
+    },
+    {
+      "values": [
+        {
+          "label": "Bandung",
+          "value": "Bandung"
+        },
+        {
+          "label": "Cimahi",
+          "value": "Cimahi"
+        },
+        {
+          "label": "Gambir",
+          "value": "Gambir"
+        },
+        {
+          "label": "Pasar Senen",
+          "value": "Pasar Senen"
+        }
+      ],
+      "label": "Destinasi",
+      "type": "select",
+      "layout": {
+        "row": "Row_1f2rp9q",
+        "columns": null
+      },
+      "id": "Field_1e7hos9",
+      "key": "destination",
+      "validate": {
+        "required": true
+      },
+      "defaultValue": "Bandung"
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Tanggal",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_1nhvydr",
+        "columns": null
+      },
+      "id": "Field_0apnctm",
+      "key": "date"
+    },
+    {
+      "label": "Jumlah penumpang",
+      "type": "number",
+      "layout": {
+        "row": "Row_1nhvydr",
+        "columns": null
+      },
+      "id": "Field_16vwne6",
+      "key": "num_of_passenger"
+    }
+  ],
+  "type": "default",
+  "id": "Form_1x9ny7v",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.1"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_27ilvur">{
+  "components": [
+    {
+      "text": "# Pilih Tiket",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1n7bifp",
+        "columns": null
+      },
+      "id": "Field_0q4ex90"
+    },
+    {
+      "values": [
+        {
+          "label": "yes",
+          "value": "yes"
+        },
+        {
+          "label": "no",
+          "value": "no"
+        }
+      ],
+      "label": "Buy ticket?",
+      "type": "radio",
+      "layout": {
+        "row": "Row_0st0gvy",
+        "columns": null
+      },
+      "id": "Field_056taas",
+      "key": "isBuying",
+      "defaultValue": "no"
+    },
+    {
+      "values": [
+        {
+          "label": "Kereta",
+          "value": "Kereta"
+        }
+      ],
+      "label": "Pilih Moda Transportasi",
+      "type": "select",
+      "layout": {
+        "row": "Row_1i8xtgq",
+        "columns": null
+      },
+      "id": "Field_1jvlbze",
+      "key": "field_modaTransportasi",
+      "defaultValue": "Kereta",
+      "searchable": true,
+      "validate": {
+        "required": true
+      },
+      "conditional": {
+        "hide": "=isBuying=\"no\""
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Semarang Poncol",
+          "value": "Semarang Poncol"
+        },
+        {
+          "label": "Semarang Tawang",
+          "value": "Semarang Tawang"
+        }
+      ],
+      "label": "Asal",
+      "type": "select",
+      "layout": {
+        "row": "Row_0hhrrcz",
+        "columns": null
+      },
+      "id": "Field_1dahl82",
+      "key": "val_origin",
+      "defaultValue": "Semarang Tawang",
+      "validate": {
+        "required": true
+      },
+      "conditional": {
+        "hide": "=isBuying=\"no\""
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Cimahi",
+          "value": "Cimahi"
+        },
+        {
+          "label": "Gambir",
+          "value": "Gambir"
+        },
+        {
+          "label": "Pasar Senen",
+          "value": "Pasar Senen"
+        },
+        {
+          "label": "Bandung",
+          "value": "Bandung"
+        }
+      ],
+      "label": "Destinasi",
+      "type": "select",
+      "layout": {
+        "row": "Row_0hhrrcz",
+        "columns": null
+      },
+      "id": "Field_100uo2b",
+      "key": "val_destination",
+      "defaultValue": "Bandung",
+      "validate": {
+        "required": true
+      },
+      "conditional": {
+        "hide": "=isBuying=\"no\""
+      }
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Tanggal",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_1xmtqky",
+        "columns": null
+      },
+      "id": "Field_052160b",
+      "key": "field_tanggal",
+      "conditional": {
+        "hide": "=isBuying=\"no\""
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Harina",
+          "value": "275000"
+        },
+        {
+          "label": "Ciremai",
+          "value": "210000"
+        }
+      ],
+      "label": "Pilih Tiket",
+      "type": "select",
+      "layout": {
+        "row": "Row_17mqwdu",
+        "columns": null
+      },
+      "id": "Field_13erw4x",
+      "key": "val_train",
+      "defaultValue": "275000",
+      "validate": {
+        "required": true
+      },
+      "properties": {},
+      "conditional": {
+        "hide": "=isBuying=\"no\""
+      }
+    }
+  ],
+  "type": "default",
+  "id": "Form_0qixu7w",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_1hipvhf">{
+  "components": [
+    {
+      "text": "Pilih Kursi",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1fy3ekx",
+        "columns": null
+      },
+      "id": "Field_1fcs8ip"
+    },
+    {
+      "values": [
+        {
+          "label": "3A",
+          "value": "3A"
+        },
+        {
+          "label": "11B",
+          "value": "11B"
+        },
+        {
+          "label": "15C",
+          "value": "15C"
+        }
+      ],
+      "label": "Pilihan Kursi Available",
+      "type": "select",
+      "layout": {
+        "row": "Row_1f2rp9q",
+        "columns": null
+      },
+      "id": "Field_0c2znv7",
+      "key": "pilihan_kursi",
+      "validate": {
+        "required": true
+      },
+      "defaultValue": "3A"
+    }
+  ],
+  "type": "default",
+  "id": "Form_1x9ny7v",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.1"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_1m70b4k">{
+  "components": [
+    {
+      "text": "Masukkan Data Penumpang",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1fy3ekx",
+        "columns": null
+      },
+      "id": "Field_1fcs8ip"
+    },
+    {
+      "label": "Nama",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_11pnlcn",
+        "columns": null
+      },
+      "id": "Field_0b1aosi",
+      "key": "inputNama",
+      "properties": {},
+      "validate": {
+        "required": true
+      },
+      "defaultValue": "ABC"
+    }
+  ],
+  "type": "default",
+  "id": "Form_1x9ny7v",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.1"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_3oac3ac">{
+  "components": [
+    {
+      "text": "Pilihan Add-Ons",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1fy3ekx",
+        "columns": null
+      },
+      "id": "Field_1fcs8ip"
+    },
+    {
+      "values": [
+        {
+          "label": "None",
+          "value": "0"
+        },
+        {
+          "label": "Insurance",
+          "value": "15200"
+        },
+        {
+          "label": "Refund Guarantee",
+          "value": "12400"
+        },
+        {
+          "label": "Home Protection",
+          "value": "9500"
+        }
+      ],
+      "label": "Add-ons yang tersedia",
+      "type": "checklist",
+      "layout": {
+        "row": "Row_10rldbr",
+        "columns": null
+      },
+      "id": "Field_0o01hpf",
+      "key": "pilihan_addons",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default",
+  "id": "Form_1x9ny7v",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.1"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_0gp2vgq">{
+  "components": [
+    {
+      "text": "# Detail Tiket",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1cwhzx7",
+        "columns": null
+      },
+      "id": "Field_1egzcrb"
+    },
+    {
+      "values": [
+        {
+          "label": "11B",
+          "value": "11B"
+        },
+        {
+          "label": "15C",
+          "value": "15C"
+        },
+        {
+          "label": "3A",
+          "value": "3A"
+        }
+      ],
+      "label": "Pilihan Kursi yang Tersedia",
+      "type": "select",
+      "layout": {
+        "row": "Row_1piy8ur",
+        "columns": null
+      },
+      "id": "Field_1idw9x3",
+      "key": "val_kursi",
+      "defaultValue": "3A",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Nama Penumpang",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1j7scpc",
+        "columns": null
+      },
+      "id": "Field_135h94b",
+      "key": "field_namaPenumpang",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Insurance",
+          "value": "15200"
+        },
+        {
+          "label": "Refund guarantee",
+          "value": "12400"
+        },
+        {
+          "label": "Home protection",
+          "value": "9500"
+        }
+      ],
+      "label": "Pilihan Add-Ons",
+      "type": "checklist",
+      "layout": {
+        "row": "Row_0g670u3",
+        "columns": null
+      },
+      "id": "Field_1utslkf",
+      "key": "val_addons",
+      "validate": {
+        "required": false
+      },
+      "properties": {}
+    },
+    {
+      "values": [
+        {
+          "label": "BCA",
+          "value": "BCA"
+        },
+        {
+          "label": "QRIS",
+          "value": "QRIS"
+        },
+        {
+          "label": "BNI",
+          "value": "BNI"
+        }
+      ],
+      "label": "Pilihan Metode Pembayaran",
+      "type": "radio",
+      "layout": {
+        "row": "Row_0gloztk",
+        "columns": null
+      },
+      "id": "Field_01o272f",
+      "key": "val_metode",
+      "validate": {
+        "required": true
+      },
+      "defaultValue": "BNI"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0miv70o",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_1ksi2r6">{
+  "components": [
+    {
+      "text": "# Konfirmasi Tiket",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1fy3ekx",
+        "columns": null
+      },
+      "id": "Field_1fcs8ip"
+    },
+    {
+      "text": "name: ",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0kxwk47",
+        "columns": null
+      },
+      "id": "Field_1sjg62y"
+    },
+    {
+      "text": "category",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0kxwk47",
+        "columns": null
+      },
+      "id": "Field_002hng1"
+    },
+    {
+      "text": "from",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1bt9t9n",
+        "columns": null
+      },
+      "id": "Field_0n9t3x8",
+      "properties": {}
+    },
+    {
+      "text": "to",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1bt9t9n",
+        "columns": null
+      },
+      "id": "Field_1wcmkob"
+    },
+    {
+      "text": "departure",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1gdde9z",
+        "columns": null
+      },
+      "id": "Field_1yr934u"
+    },
+    {
+      "text": "arrival",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1gdde9z",
+        "columns": null
+      },
+      "id": "Field_0bibo7u"
+    },
+    {
+      "text": "add-ons",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0aj9qdn",
+        "columns": null
+      },
+      "id": "Field_1xzw0my"
+    },
+    {
+      "text": "price",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0aj9qdn",
+        "columns": null
+      },
+      "id": "Field_0yfn4hg"
+    },
+    {
+      "text": "payment",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_079i4b6",
+        "columns": null
+      },
+      "id": "Field_1b27jbf"
+    },
+    {
+      "action": "submit",
+      "label": "Konfirmasi Tiket",
+      "type": "button",
+      "layout": {
+        "row": "Row_1bs6hpc",
+        "columns": null
+      },
+      "id": "Field_0p9n8ec",
+      "key": "field_0u8aip8"
+    }
+  ],
+  "type": "default",
+  "id": "Form_1x9ny7v",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.1"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_2ubnj1o">{
+  "components": [
+    {
+      "text": "# Lakukan Pembayaran",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1fy3ekx",
+        "columns": null
+      },
+      "id": "Field_1fcs8ip"
+    },
+    {
+      "action": "submit",
+      "label": "Konfirmasi Pembayaran",
+      "type": "button",
+      "layout": {
+        "row": "Row_165in01",
+        "columns": null
+      },
+      "id": "Field_198nuxc",
+      "key": "field_0pspx0s"
+    }
+  ],
+  "type": "default",
+  "id": "Form_1x9ny7v",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+    </bpmn:extensionElements>
+    <bpmn:laneSet id="LaneSet_07mecix">
+      <bpmn:lane id="Lane_01jcucz">
+        <bpmn:flowNodeRef>Event_1c11g8n</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_19p3g80</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1rw8chl</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_1wutyh7</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0k40clj</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0en3mz3</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1sd9f7b</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_08i1tic</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_02ezuck</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_0jesrvm</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:sequenceFlow id="Flow_1w1v3j6" sourceRef="Activity_1rw8chl" targetRef="Gateway_1wutyh7" />
+    <bpmn:sequenceFlow id="Flow_015m7hn" sourceRef="Event_1c11g8n" targetRef="Activity_19p3g80" />
+    <bpmn:sequenceFlow id="Flow_0gjpdq8" sourceRef="Activity_19p3g80" targetRef="Activity_1rw8chl" />
+    <bpmn:startEvent id="Event_1c11g8n">
+      <bpmn:outgoing>Flow_015m7hn</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_19p3g80" name="Get ticket" zeebe:modelerTemplate="io.camunda.connectors.HttpJson.v2" zeebe:modelerTemplateVersion="2" zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M17.0335%208.99997C17.0335%2013.4475%2013.4281%2017.0529%208.98065%2017.0529C4.53316%2017.0529%200.927765%2013.4475%200.927765%208.99997C0.927765%204.55248%204.53316%200.947083%208.98065%200.947083C13.4281%200.947083%2017.0335%204.55248%2017.0335%208.99997Z%22%20fill%3D%22%23505562%22%2F%3E%0A%3Cpath%20d%3D%22M4.93126%2014.1571L6.78106%203.71471H10.1375C11.1917%203.71471%2011.9824%203.98323%2012.5095%204.52027C13.0465%205.04736%2013.315%205.73358%2013.315%206.57892C13.315%207.44414%2013.0714%208.15522%2012.5841%208.71215C12.1067%209.25913%2011.4553%209.63705%2010.6298%209.8459L12.0619%2014.1571H10.3315L9.03364%2010.0249H7.24351L6.51254%2014.1571H4.93126ZM7.49711%208.59281H9.24248C9.99832%208.59281%2010.5901%208.42374%2011.0177%208.08561C11.4553%207.73753%2011.6741%207.26513%2011.6741%206.66842C11.6741%206.19106%2011.5249%205.81811%2011.2265%205.54959C10.9282%205.27113%2010.4558%205.1319%209.80936%205.1319H8.10874L7.49711%208.59281Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="noAuth" target="authentication.type" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="https://rest-xrk1.onrender.com/common" target="url" />
+          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="resultVariable" value="commonResponse" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_015m7hn</bpmn:incoming>
+      <bpmn:outgoing>Flow_0gjpdq8</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Activity_1rw8chl" name="Pilih stasiun, tanggal, kereta">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_27ilvur" />
+        <zeebe:ioMapping>
+          <zeebe:input source="=commonResponse.body.origin" target="origin" />
+          <zeebe:input source="=commonResponse.body.destination" target="destination" />
+          <zeebe:input source="=commonResponse.body.train" target="train" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0gjpdq8</bpmn:incoming>
+      <bpmn:outgoing>Flow_1w1v3j6</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_1wutyh7">
+      <bpmn:incoming>Flow_1w1v3j6</bpmn:incoming>
+      <bpmn:outgoing>Flow_0mtl0ye</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1x9qi6p</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="Activity_0k40clj" name="Get kursi, addons, metode pembayaran" zeebe:modelerTemplate="io.camunda.connectors.HttpJson.v2" zeebe:modelerTemplateVersion="2" zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M17.0335%208.99997C17.0335%2013.4475%2013.4281%2017.0529%208.98065%2017.0529C4.53316%2017.0529%200.927765%2013.4475%200.927765%208.99997C0.927765%204.55248%204.53316%200.947083%208.98065%200.947083C13.4281%200.947083%2017.0335%204.55248%2017.0335%208.99997Z%22%20fill%3D%22%23505562%22%2F%3E%0A%3Cpath%20d%3D%22M4.93126%2014.1571L6.78106%203.71471H10.1375C11.1917%203.71471%2011.9824%203.98323%2012.5095%204.52027C13.0465%205.04736%2013.315%205.73358%2013.315%206.57892C13.315%207.44414%2013.0714%208.15522%2012.5841%208.71215C12.1067%209.25913%2011.4553%209.63705%2010.6298%209.8459L12.0619%2014.1571H10.3315L9.03364%2010.0249H7.24351L6.51254%2014.1571H4.93126ZM7.49711%208.59281H9.24248C9.99832%208.59281%2010.5901%208.42374%2011.0177%208.08561C11.4553%207.73753%2011.6741%207.26513%2011.6741%206.66842C11.6741%206.19106%2011.5249%205.81811%2011.2265%205.54959C10.9282%205.27113%2010.4558%205.1319%209.80936%205.1319H8.10874L7.49711%208.59281Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="noAuth" target="authentication.type" />
+          <zeebe:input source="get" target="method" />
+          <zeebe:input source="https://rest-xrk1.onrender.com/detail" target="url" />
+          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="resultVariable" value="detailResponse" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0mtl0ye</bpmn:incoming>
+      <bpmn:outgoing>Flow_0svqsq9</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Activity_0en3mz3" name="Input data penumpang, kursi, addons, metode pembayaran">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_0gp2vgq" />
+        <zeebe:ioMapping>
+          <zeebe:input source="=detailResponse.body.kursi" target="kursi" />
+          <zeebe:input source="=detailResponse.body.addons" target="addons" />
+          <zeebe:input source="=detailResponse.body.metode" target="metode" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0svqsq9</bpmn:incoming>
+      <bpmn:outgoing>Flow_10qn1ig</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1x9qi6p" name="Cancel order" sourceRef="Gateway_1wutyh7" targetRef="Event_02ezuck">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=isBuying="no"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0mtl0ye" name="Choose ticket" sourceRef="Gateway_1wutyh7" targetRef="Activity_0k40clj">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=isBuying="yes"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_10qn1ig" sourceRef="Activity_0en3mz3" targetRef="Activity_1sd9f7b" />
+    <bpmn:sequenceFlow id="Flow_0c4968g" sourceRef="Activity_1sd9f7b" targetRef="Event_08i1tic" />
+    <bpmn:sequenceFlow id="Flow_0macp39" sourceRef="Event_0jesrvm" targetRef="Event_02ezuck" />
+    <bpmn:sequenceFlow id="Flow_0svqsq9" sourceRef="Activity_0k40clj" targetRef="Activity_0en3mz3" />
+    <bpmn:userTask id="Activity_1sd9f7b" name="Bayar">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_2ubnj1o" />
+        <zeebe:ioMapping>
+          <zeebe:input source="=number(val_train)+sum(number(val_addons))" target="total" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_10qn1ig</bpmn:incoming>
+      <bpmn:outgoing>Flow_0c4968g</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:boundaryEvent id="Event_0jesrvm" attachedToRef="Activity_1sd9f7b">
+      <bpmn:extensionElements>
+        <zeebe:ioMapping>
+          <zeebe:output source="=false" target="success" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_0macp39</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_082phtv">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT0H1M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:endEvent id="Event_08i1tic" name="Pemesanan berhasil">
+      <bpmn:incoming>Flow_0c4968g</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="Event_02ezuck" name="Pemesanan Gagal&#10;">
+      <bpmn:incoming>Flow_1x9qi6p</bpmn:incoming>
+      <bpmn:incoming>Flow_0macp39</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0zg0as5">
+      <bpmndi:BPMNShape id="Participant_181r3vm_di" bpmnElement="Participant_181r3vm" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1190" height="430" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_01jcucz_di" bpmnElement="Lane_01jcucz" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1160" height="430" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1c11g8n_di" bpmnElement="Event_1c11g8n">
+        <dc:Bounds x="232" y="312" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05dvda0_di" bpmnElement="Activity_19p3g80">
+        <dc:Bounds x="300" y="290" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0jxiucv" bpmnElement="Activity_1rw8chl">
+        <dc:Bounds x="460" y="290" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1wutyh7_di" bpmnElement="Gateway_1wutyh7" isMarkerVisible="true">
+        <dc:Bounds x="625" y="305" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16ozc54_di" bpmnElement="Activity_0k40clj">
+        <dc:Bounds x="740" y="290" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1ez3zpt" bpmnElement="Activity_0en3mz3">
+        <dc:Bounds x="890" y="290" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1sd9f7b_di" bpmnElement="Activity_1sd9f7b">
+        <dc:Bounds x="1040" y="290" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_08i1tic_di" bpmnElement="Event_08i1tic">
+        <dc:Bounds x="1242" y="312" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1230" y="366" width="59" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_02ezuck_di" bpmnElement="Event_02ezuck">
+        <dc:Bounds x="1242" y="192" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1230" y="240" width="59" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_19om79v_di" bpmnElement="Event_0jesrvm">
+        <dc:Bounds x="1092" y="272" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1w1v3j6_di" bpmnElement="Flow_1w1v3j6">
+        <di:waypoint x="560" y="330" />
+        <di:waypoint x="625" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_015m7hn_di" bpmnElement="Flow_015m7hn">
+        <di:waypoint x="268" y="330" />
+        <di:waypoint x="300" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0gjpdq8_di" bpmnElement="Flow_0gjpdq8">
+        <di:waypoint x="400" y="330" />
+        <di:waypoint x="460" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1x9qi6p_di" bpmnElement="Flow_1x9qi6p">
+        <di:waypoint x="650" y="305" />
+        <di:waypoint x="650" y="140" />
+        <di:waypoint x="1260" y="140" />
+        <di:waypoint x="1260" y="192" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="923" y="122" width="65" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mtl0ye_di" bpmnElement="Flow_0mtl0ye">
+        <di:waypoint x="675" y="330" />
+        <di:waypoint x="740" y="330" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="616" y="362" width="68" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10qn1ig_di" bpmnElement="Flow_10qn1ig">
+        <di:waypoint x="990" y="330" />
+        <di:waypoint x="1040" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0c4968g_di" bpmnElement="Flow_0c4968g">
+        <di:waypoint x="1140" y="330" />
+        <di:waypoint x="1242" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0macp39_di" bpmnElement="Flow_0macp39">
+        <di:waypoint x="1110" y="272" />
+        <di:waypoint x="1110" y="210" />
+        <di:waypoint x="1242" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0svqsq9_di" bpmnElement="Flow_0svqsq9">
+        <di:waypoint x="840" y="330" />
+        <di:waypoint x="890" y="330" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,120 @@
+{
+  "components": [
+    {
+      "text": "# Detail Tiket",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1cwhzx7",
+        "columns": null
+      },
+      "id": "Field_1egzcrb"
+    },
+    {
+      "values": [
+        {
+          "label": "11B",
+          "value": "11B"
+        },
+        {
+          "label": "15C",
+          "value": "15C"
+        },
+        {
+          "label": "3A",
+          "value": "3A"
+        }
+      ],
+      "label": "Pilihan Kursi yang Tersedia",
+      "type": "select",
+      "layout": {
+        "row": "Row_1piy8ur",
+        "columns": null
+      },
+      "id": "Field_1idw9x3",
+      "key": "val_kursi",
+      "defaultValue": "3A",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Nama Penumpang",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1j7scpc",
+        "columns": null
+      },
+      "id": "Field_135h94b",
+      "key": "field_namaPenumpang",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Insurance",
+          "value": "15200"
+        },
+        {
+          "label": "Refund guarantee",
+          "value": "12400"
+        },
+        {
+          "label": "Home protection",
+          "value": "9500"
+        }
+      ],
+      "label": "Pilihan Add-Ons",
+      "type": "checklist",
+      "layout": {
+        "row": "Row_0g670u3",
+        "columns": null
+      },
+      "id": "Field_1utslkf",
+      "key": "val_addons",
+      "validate": {
+        "required": false
+      },
+      "properties": {}
+    },
+    {
+      "values": [
+        {
+          "label": "BCA",
+          "value": "BCA"
+        },
+        {
+          "label": "QRIS",
+          "value": "QRIS"
+        },
+        {
+          "label": "BNI",
+          "value": "BNI"
+        }
+      ],
+      "label": "Pilihan Metode Pembayaran",
+      "type": "radio",
+      "layout": {
+        "row": "Row_0gloztk",
+        "columns": null
+      },
+      "id": "Field_01o272f",
+      "key": "val_metode",
+      "validate": {
+        "required": true
+      },
+      "defaultValue": "BNI"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0miv70o",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}
